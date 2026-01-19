@@ -1,11 +1,5 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
-        System.out.println("Hola soy José Manuel");
-
-        System.out.println("Hola soy Emilio");
-
-        System.out.println("Hola Emilio!!!!!!!!!!");
-        System.out.println("eyyy");
+        
     }
 }
