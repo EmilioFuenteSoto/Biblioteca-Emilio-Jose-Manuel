@@ -34,7 +34,7 @@ public class Usuario {
         this.contrasena = contrasena;
     }
 
-    //Métodos
+    //Métodoss
 
      
 }
