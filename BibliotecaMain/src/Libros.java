@@ -17,7 +17,6 @@ public class Libros {
         this.titulo = titulo;
         this.autor = autor;
         this.categoria = categoria;
-        anadirLibros();
         
     }
 
@@ -46,6 +45,12 @@ public class Libros {
 
     public void setCategoria(String titulo) {
         this.categoria = categoria;
+    }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return "Nombre" + getTitulo();
     }
 
 }
