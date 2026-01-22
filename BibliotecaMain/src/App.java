@@ -11,5 +11,17 @@ public class App {
         
         gestor.eliminarLibros("Hola");
         gestor.mostrarLibros();
+
+        Usuario usuario1 = new Usuario(true);
+
+        Usuario usuario2 = new Usuario();
+
+        while (usuario2.getNombreUsuario().equals("none")) {
+
+            System.out.println("Hola esto es una prueba");
+            break;
+
+            
+        }
     }
 }
