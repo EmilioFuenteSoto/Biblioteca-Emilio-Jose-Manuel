@@ -50,7 +50,7 @@ public class Libros {
     @Override
     public String toString() {
         // TODO Auto-generated method stub
-        return "Nombre" + getTitulo();
+        return "Nombre del libro: " + getTitulo() + " Autor del libro: " + getAutor() + " Categoria del libro: " + getCategoria();
     }
 
 }
