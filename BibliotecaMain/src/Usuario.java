@@ -36,6 +36,17 @@ public class Usuario {
 
     //Métodoss
 
-    
+    public boolean comprobarAdmin(){
+        
+        boolean esAdmin = false;
+        if(this.admin){
+            esAdmin = true;
+            return esAdmin;
+        }
+
+        return false;
+
+        
+    }
      
 }

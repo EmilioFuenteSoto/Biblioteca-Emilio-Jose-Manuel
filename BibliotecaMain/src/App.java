@@ -16,12 +16,13 @@ public class App {
 
         Usuario usuario2 = new Usuario();
 
-        while (usuario2.getNombreUsuario().equals("none")) {
+       // while (usuario2.getNombreUsuario().equals("none")) {
 
-            System.out.println("Hola esto es una prueba");
-            break;
+            //if(usuario1,admin){
 
             
-        }
+
+            
+        
     }
 }
