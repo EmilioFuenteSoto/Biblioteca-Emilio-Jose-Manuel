@@ -2,8 +2,7 @@ public class Libros {
     private String titulo;
     private String autor;
     private String categoria;
-    private String busqLibros[];
-    private int cantidad;
+    
     
     //Constructores
 
@@ -11,15 +10,14 @@ public class Libros {
         this.titulo = "Default";
         this.autor = "Default";
         this.categoria = "Categoria";
-        busqLibros = new String[100];
-
+        
     }
 
     public Libros(String titulo, String autor, String categoria){
         this.titulo = titulo;
         this.autor = autor;
         this.categoria = categoria;
-        busqLibros = new String[100];
+        
     }
 
 
@@ -47,6 +45,12 @@ public class Libros {
 
     public void setCategoria(String titulo) {
         this.categoria = categoria;
+    }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return "Nombre del libro: " + getTitulo() + " Autor del libro: " + getAutor() + " Categoria del libro: " + getCategoria();
     }
 
 }

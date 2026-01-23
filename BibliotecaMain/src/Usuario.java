@@ -34,24 +34,34 @@ public class Usuario {
         this.contrasena = contrasena;
     }
 
+    public String getContrasena(){
+        return this.contrasena;
+    }
+
     public Boolean getAdmin(){
         return this.admin;
     }
 
     //Metodos
-    // public void anadirUsuarios(String nombre, String contrasena){
-    //     Usuario usuario = new Usuario();
-    //     listaUsuarios[cantidad] = usuario;
-    //     cantidad++;
-    // }
 
-    // public void anadirUsuariosAdmin(String nombre, String contrasena){
-    //     Usuario usuario = new Usuario(true);
-    //     listaUsuarios[cantidad] = usuario;
-    //     cantidad++;
-    // }
+    
+    public String toString(Usuario usuario){
+         return "Nombre: " + getNombreUsuario() + " Contraseña: " + getContrasena() + " Admin: " + getAdmin();
+    }
 
 
 
+    public boolean comprobarAdmin(){
+        
+        boolean esAdmin = false;
+        if(this.admin){
+            esAdmin = true;
+            return esAdmin;
+        }
+
+        return false;
+
+        
+    }
      
 }
