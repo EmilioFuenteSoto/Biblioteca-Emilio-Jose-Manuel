@@ -21,7 +21,7 @@ public class gestora_usuarios {
     public void comprobar_Existencia_Usuario(Usuario usuario){
         for(int i =0; i < cantidad; i++){
              if(usuarios[i].getNombreUsuario().equals(usuario)){
-
+                
              }else{
                 
              }

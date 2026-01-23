@@ -48,20 +48,8 @@ public class Usuario {
     public String toString(Usuario usuario){
          return "Nombre: " + getNombreUsuario() + " Contraseña: " + getContrasena() + " Admin: " + getAdmin();
     }
-
-
-
-    public boolean comprobarAdmin(){
-        
-        boolean esAdmin = false;
-        if(this.admin){
-            esAdmin = true;
-            return esAdmin;
-        }
-
-        return false;
-
+       
         
     }
      
-}
+

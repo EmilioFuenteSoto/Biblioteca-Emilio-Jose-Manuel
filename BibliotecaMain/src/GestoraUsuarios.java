@@ -32,6 +32,17 @@ public class GestoraUsuarios {
         }    
     }
 
+     public void comprobar_Existencia_Usuario(Usuario usuario){
+        for(int i =0; i < cantidad; i++){
+             if(listaUsuarios[i].getNombreUsuario().equals(usuario)){
+                
+             }else{
+                
+             }
+        }
+       
+    }
+
     // public void anadirUsuariosAdmin(Usuario usuario){
     //     if (cantidad < MAX_USUARIOS) {
     //         listaUsuarios[cantidad] = usuario;

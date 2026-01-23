@@ -90,10 +90,20 @@ public class gestoraLibros {
 
     }
 
+    @Override
+    public String toString() {
+        String infoLibros = "";
+        for(int i =0; i < cantidad; i++){
+            infoLibros+=libros_personas[i].toString();
+        }
+        return infoLibros;
+    }
+
     // Metodo que muestra todos los libros disponibles
     public void mostrarLibros() {
+     
         for (int i = 0; i < cantidad; i++) {
-            System.out.println(libros_personas[i]);
+            toString();
         }
     }
 
@@ -102,7 +112,7 @@ public class gestoraLibros {
         Libros[] encontrados = buscarPorCategoria(titulo);
 
         for (int i = 0; i < encontrados.length; i++) {
-            System.out.println(encontrados[i]);
+             System.out.println(encontrados);
         }
 
     }
@@ -111,7 +121,7 @@ public class gestoraLibros {
         Libros[] encontrados = buscarPorCategoria(autor);
 
         for (int i = 0; i < encontrados.length; i++) {
-            System.out.println(encontrados[i]);
+            encontrados.toString();
         }
 
     }
@@ -121,7 +131,7 @@ public class gestoraLibros {
         Libros[] encontrados = buscarPorCategoria(categoria);
 
         for (int i = 0; i < encontrados.length; i++) {
-            System.out.println(encontrados[i]);
+            encontrados.toString();
         }
 
     }
