@@ -5,7 +5,10 @@ public class GestoraUsuarios {
 
     public GestoraUsuarios() {
         this.cantidad = 0;
+        this.listaUsuarios = new Usuario[MAX_USUARIOS];
     }
+
+   
 
     // Metodos
 
@@ -22,15 +25,19 @@ public class GestoraUsuarios {
 
     //}
 
-    public void anadirUsuarios(Usuario usuario) {
+    public boolean anadirUsuarios(Usuario usuario) {
         if (cantidad < MAX_USUARIOS) {
             listaUsuarios[cantidad] = usuario;
             cantidad++;
+            return true;
+        }else{
+            return false;
         }
     }
 
     public Usuario obtenerUsuarioReal(String nombreUsuario, String contrasena){
-        for(Usuario u: listaUsuarios){
+        for(int i =0; i < cantidad ; i++){
+            Usuario u = listaUsuarios[i];
            if (u.getNombreUsuario().equals(nombreUsuario) && u.getContrasena().equals(contrasena)) {
                 return u;
            }

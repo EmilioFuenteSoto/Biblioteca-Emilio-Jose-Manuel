@@ -1,11 +1,11 @@
 import java.util.Arrays;
 
-public class gestoraLibros {
+public class GestoraLibros {
     private int cantidad;
     private Libros[] libros_personas;
     private static final int MAX_LIBROS = 100;
 
-    public gestoraLibros() {
+    public GestoraLibros() {
         this.libros_personas = new Libros[MAX_LIBROS];
         this.cantidad = 0;
     }
@@ -99,41 +99,6 @@ public class gestoraLibros {
         return infoLibros;
     }
 
-    // Metodo que muestra todos los libros disponibles
-    public void mostrarLibros() {
-     
-        for (int i = 0; i < cantidad; i++) {
-            toString();
-        }
-    }
-
-    // Metodo que muestra todos los libros por su titulo
-     public void mostrarLibrosPorTitulo(String titulo) {
-        Libros[] encontrados = buscarPorCategoria(titulo);
-
-        for (int i = 0; i < encontrados.length; i++) {
-             System.out.println(encontrados);
-        }
-
-    }
-     // Metodo que muestra todos los libros por su autor
-     public void mostrarLibrosPorAutor(String autor) {
-        Libros[] encontrados = buscarPorCategoria(autor);
-
-        for (int i = 0; i < encontrados.length; i++) {
-            encontrados.toString();
-        }
-
-    }
-
-     // Metodo que muestra todos los libros por su categoria
-    public void mostrarLibrosPorCategoria(String categoria) {
-        Libros[] encontrados = buscarPorCategoria(categoria);
-
-        for (int i = 0; i < encontrados.length; i++) {
-            encontrados.toString();
-        }
-
-    }
+    
 
 }

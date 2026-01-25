@@ -5,42 +5,17 @@ public class App {
 
     public static void main(String[] args) throws Exception {
 
-        Libros libro = new Libros("Hola", "hola", "Salud");
+        GestoraUsuarios gestoraUsuarios = new GestoraUsuarios();
+        GestoraLibros gestoraLibros = new GestoraLibros();
+        Biblioteca biblioteca = new Biblioteca(gestoraUsuarios, gestoraLibros);
+        todos_los_print mensajes = new todos_los_print(biblioteca);
 
-        gestoraLibros gestor = new gestoraLibros();
-        gestor.anadirLibros(libro);
-        Libros librodos = new Libros("un monstruo viene a verme", "Stephen King", "miedo");
-        gestor.anadirLibros(librodos);
-        gestor.mostrarLibros();
-        gestor.mostrarLibrosPorCategoria("miedo");
+        Usuario admin = new Usuario(true);
+        admin.setNombreUsuario("jose");
+        admin.setContrasena("1234");
+        gestoraUsuarios.anadirUsuarios(admin);
+        mensajes.Login();
+       
+}
 
-        // gestor.eliminarLibros("Hola");
-        gestor.mostrarLibros();
-
-        librodos.toString();
-
-        Usuario usuario1 = new Usuario(true);
-
-        Usuario usuario2 = new Usuario();
-
-        // while (usuario2.getNombreUsuario().equals("none")) {
-
-        // if(usuario1,admin){
-
-        Biblioteca biblioteca = new Biblioteca();
-
-        todos_los_print mensajes = new todos_los_print();
-
-        gestora_usuarios usuarios_admin = new gestora_usuarios();
-
-        boolean salida = false;
-        int opcion = 0;
-
-        while (salida) {
-
-            usuarios_admin.comprobar_Existencia_Usuario(usuario2);
-
-        }
-
-    }
 }
