@@ -51,9 +51,9 @@ public class Usuario {
 
     //Metodos
 
-    
-    public String toString(Usuario usuario){
-         return "Nombre: " + getNombreUsuario() + " Contraseña: " + getContrasena() + " Admin: " + getAdmin();
+    @Override
+    public String toString(){
+         return "\nNombre: " + getNombreUsuario() + " Contraseña: " + getContrasena() + " Admin: " + getAdmin();
     }
        
         

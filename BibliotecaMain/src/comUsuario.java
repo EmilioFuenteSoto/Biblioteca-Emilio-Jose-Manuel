@@ -83,6 +83,21 @@ public class ComUsuario {
         System.out.println(biblioteca.mostrarLibros());
     }
 
+    public void mostrarTodosUsuarios() {
+        System.out.println(biblioteca.mostrarUsuarios());
+    }
+
+    public void eliminarLibros() {
+        System.out.println("Introduce el título del libro a borrar");
+        String titulo = sc.nextLine();
+        if(biblioteca.eliminarLibros(titulo)){
+             System.out.println("Libro " + titulo + " eliminado correctamente");
+        } else {
+             System.out.println("No se pudo borrar " + titulo);
+        }
+        
+    }
+
     public void mostrarMenuAdmin(Usuario usuario) {
         boolean salida = true;
 
@@ -93,8 +108,10 @@ public class ComUsuario {
             System.out.println("3. Buscar por Autor");
             System.out.println("4. Buscar por Categoria");
             System.out.println("5. Buscar por Titulo");
-            System.out.println("7. Añadir Usuarios");
-            System.out.println("8. Salir del menú");
+            System.out.println("6. Añadir Usuarios");
+            System.out.println("7. Mostrar Usuarios");
+            System.out.println("8. Eliminar Libro");
+            System.out.println("9. Salir");
 
             int opcion = Integer.parseInt(sc.nextLine());
 
@@ -105,7 +122,9 @@ public class ComUsuario {
                 case 4 -> buscarPorCtegoria();
                 case 5 -> buscarPorTitulo();
                 case 6 -> addUsuarios();
-                case 7 -> salida = false;
+                case 7 -> mostrarTodosUsuarios();
+                case 8 -> eliminarLibros();
+                case 9 -> salida = false;
 
             }
         }
