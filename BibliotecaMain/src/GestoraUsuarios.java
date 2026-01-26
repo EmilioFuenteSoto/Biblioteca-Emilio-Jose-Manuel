@@ -8,8 +8,6 @@ public class GestoraUsuarios {
         this.listaUsuarios = new Usuario[MAX_USUARIOS];
     }
 
-   
-
     // Metodos
 
     public boolean esAdmin(Usuario usuario) {
@@ -20,31 +18,31 @@ public class GestoraUsuarios {
         }
     }
 
-    //@Override
-    //public String toString(Usuario usuario) {
+    // @Override
+    // public String toString(Usuario usuario) {
 
-    //}
+    // }
 
     public boolean anadirUsuarios(Usuario usuario) {
         if (cantidad < MAX_USUARIOS) {
             listaUsuarios[cantidad] = usuario;
             cantidad++;
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-    public Usuario obtenerUsuarioReal(String nombreUsuario, String contrasena){
-        for(int i =0; i < cantidad ; i++){
+    public Usuario obtenerUsuarioReal(String nombreUsuario, String contrasena) {
+        for (int i = 0; i < cantidad; i++) {
             Usuario u = listaUsuarios[i];
-           if (u.getNombreUsuario().equals(nombreUsuario) && u.getContrasena().equals(contrasena)) {
+            if (u.getNombreUsuario().equals(nombreUsuario) && u.getContrasena().equals(contrasena)) {
                 return u;
-           }
+            }
         }
 
         return null;
-       
+
     }
 
     public boolean comprobar_Existencia_Usuario(String usuario, String contrasena) {

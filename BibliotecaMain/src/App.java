@@ -8,7 +8,7 @@ public class App {
         GestoraUsuarios gestoraUsuarios = new GestoraUsuarios();
         GestoraLibros gestoraLibros = new GestoraLibros();
         Biblioteca biblioteca = new Biblioteca(gestoraUsuarios, gestoraLibros);
-        todos_los_print mensajes = new todos_los_print(biblioteca);
+        comUsuario mensajes = new comUsuario(biblioteca);
 
         Usuario admin = new Usuario(true);
         admin.setNombreUsuario("jose");
