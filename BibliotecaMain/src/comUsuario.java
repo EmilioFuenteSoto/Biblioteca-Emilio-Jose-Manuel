@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
-public class comUsuario {
+public class ComUsuario {
     private Biblioteca biblioteca;
 
-    public comUsuario(Biblioteca biblioteca){
+    public ComUsuario(Biblioteca biblioteca){
         this.biblioteca = biblioteca;
     }
 
