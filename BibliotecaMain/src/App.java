@@ -13,9 +13,8 @@ public class App {
         admin.setNombreUsuario("jose");
         admin.setContrasena("1234");
         biblioteca.añadirUsuarios(admin);
-        mensajes.Login();
+        mensajes.login();
 
-        
 }
 
 }
