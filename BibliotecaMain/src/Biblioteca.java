@@ -20,12 +20,12 @@ public class Biblioteca {
         return gestoraLibros.buscarPorTitulo(titulo);
     }
 
-    public void buscarLibroPorAutor(String autor) {
-        gestoraLibros.buscarPorAutor(autor);
+    public Libros[] buscarLibroPorAutor(String autor) {
+       return gestoraLibros.buscarPorAutor(autor);
     }
 
-    public void buscarLibroPorCategoria(String categoria) {
-        gestoraLibros.buscarPorAutor(categoria);
+    public Libros[] buscarLibroPorCategoria(String categoria) {
+        return gestoraLibros.buscarPorAutor(categoria);
     }
 
     public boolean validacionUsuario(String usuario, String contrasena) {

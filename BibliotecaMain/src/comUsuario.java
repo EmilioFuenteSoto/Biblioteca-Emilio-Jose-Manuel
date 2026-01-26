@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class ComUsuario {
     private Biblioteca biblioteca;
 
-    public ComUsuario(Biblioteca biblioteca){
+    public ComUsuario(Biblioteca biblioteca) {
         this.biblioteca = biblioteca;
     }
 
@@ -26,15 +26,15 @@ public class ComUsuario {
         Libros libro = new Libros(titulo, autor, categoria);
         boolean accion = biblioteca.anadirLibros(libro);
 
-        if(accion){
+        if (accion) {
             System.out.println("El libro se ha añadido");
-        }else{
+        } else {
             System.out.println("El libro no pudo añadirse");
         }
 
     }
 
-     public void addUsuarios() {
+    public void addUsuarios() {
 
         System.out.println("Has elegido la opcion 1 que es añadir libros sr Admin");
         System.out.println();
@@ -49,9 +49,9 @@ public class ComUsuario {
 
         boolean accion = biblioteca.añadirUsuarios(usuario);
 
-        if(accion){
+        if (accion) {
             System.out.println("El usuario se ha añadido");
-        }else{
+        } else {
             System.out.println("El usuario no pudo añadirse");
         }
 
@@ -90,9 +90,11 @@ public class ComUsuario {
             System.out.println("=== MENU ADMIN ===");
             System.out.println("1. Ver Libros");
             System.out.println("2. Añadir Libro");
-            System.out.println("3. Eliminar Libro");
-            System.out.println("4. Gestionar Usuarios");
-            System.out.println("5. Salir");
+            System.out.println("3. Buscar por Autor");
+            System.out.println("4. Buscar por Categoria");
+            System.out.println("5. Buscar por Titulo");
+            System.out.println("7. Añadir Usuarios");
+            System.out.println("8. Salir del menú");
 
             int opcion = Integer.parseInt(sc.nextLine());
 
@@ -126,15 +128,33 @@ public class ComUsuario {
     }
 
     public void buscarPorCtegoria() {
-        System.out.println("Introduce la categoria para encontrar todos los libros que pertenecen a esa categoria");
+        System.out.println("Introduce la categoria");
         String categoria = sc.nextLine();
-        biblioteca.buscarLibroPorCategoria(categoria);
+        Libros[] encontrados = biblioteca.buscarLibroPorCategoria(categoria);
+
+        if (encontrados.length != 0) {
+            for (int i = 0; i < encontrados.length; i++) {
+                System.out.println(encontrados[i]);
+            }
+        } else {
+            System.out.println("No hay libros en esta categoria");
+
+        }
     }
 
     public void buscarPorAutor() {
-        System.out.println("Introduce el nombre de un autor para encontrar todos los libros que ha escrito");
+        System.out.println("Introduce la categoria");
         String autor = sc.nextLine();
-        biblioteca.buscarLibroPorTitulo(autor);
+        Libros[] encontrados = biblioteca.buscarLibroPorCategoria(autor);
+
+        if (encontrados.length != 0) {
+            for (int i = 0; i < encontrados.length; i++) {
+                System.out.println(encontrados[i]);
+            }
+        } else {
+            System.out.println("No hay libros asociados a este autor");
+
+        }
     }
 
 }

@@ -9,11 +9,10 @@ public class App {
         GestoraLibros gestoraLibros = new GestoraLibros();
         Biblioteca biblioteca = new Biblioteca(gestoraUsuarios, gestoraLibros);
         ComUsuario mensajes = new ComUsuario(biblioteca);
-
         Usuario admin = new Usuario(true);
         admin.setNombreUsuario("jose");
         admin.setContrasena("1234");
-        gestoraUsuarios.anadirUsuarios(admin);
+        biblioteca.añadirUsuarios(admin);
         mensajes.Login();
 
         
