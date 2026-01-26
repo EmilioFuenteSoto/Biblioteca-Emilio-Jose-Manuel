@@ -1,5 +1,14 @@
+import java.util.Scanner;
+
 public class App {
+    private final static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) throws Exception {
+
+        GestoraUsuarios gestoraUsuarios = new GestoraUsuarios();
+        GestoraLibros gestoraLibros = new GestoraLibros();
+        Biblioteca biblioteca = new Biblioteca(gestoraUsuarios, gestoraLibros);
+        comUsuario mensajes = new comUsuario(biblioteca);
         Libros libro = new Libros("Hola", "hola", "Salud");
 
         gestoraLibros gestorLibro = new gestoraLibros();
@@ -12,17 +21,12 @@ public class App {
         gestorLibro.eliminarLibros("Hola");
         gestorLibro.mostrarLibros();
 
-        Usuario usuario1 = new Usuario(true);
+        Usuario admin = new Usuario(true);
+        admin.setNombreUsuario("jose");
+        admin.setContrasena("1234");
+        gestoraUsuarios.anadirUsuarios(admin);
+        mensajes.Login();
+       
+}
 
-        Usuario usuario2 = new Usuario();
-
-       // while (usuario2.getNombreUsuario().equals("none")) {
-
-            //if(usuario1,admin){
-
-            
-
-            
-        
-    }
 }

@@ -12,6 +12,11 @@ public class Usuario {
         this.contrasena = "1234";
     }
 
+    public Usuario(String usuario, String contrasena){
+        this.contrasena = contrasena;
+        this.nombreUsuario= usuario;
+    }
+
     public Usuario(boolean admin){
         this();
         this.admin = admin;
@@ -23,11 +28,13 @@ public class Usuario {
         return this.nombreUsuario;
     }
 
-    public void setNombre(String nombre){
-        this.nombreUsuario = nombreUsuario;
-        if(nombre == ""){
-            nombre = "none";
+    public void setNombreUsuario(String nombre){
+        if(nombre == null || nombre.isEmpty()){
+            this.nombreUsuario = "none";
+        }else{
+            this.nombreUsuario = nombre;
         }
+        
     }
 
     public void setContrasena(String contrasena){
@@ -48,20 +55,8 @@ public class Usuario {
     public String toString(Usuario usuario){
          return "Nombre: " + getNombreUsuario() + " Contraseña: " + getContrasena() + " Admin: " + getAdmin();
     }
-
-
-
-    public boolean comprobarAdmin(){
-        
-        boolean esAdmin = false;
-        if(this.admin){
-            esAdmin = true;
-            return esAdmin;
-        }
-
-        return false;
-
+       
         
     }
      
-}
+
