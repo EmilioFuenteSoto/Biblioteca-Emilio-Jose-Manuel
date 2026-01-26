@@ -20,10 +20,7 @@ public class GestoraUsuarios {
         }
     }
 
-    @Override
-    public String toString(Usuario usuario){
-
-    }
+    
 
     public void anadirUsuarios(Usuario usuario){
         if (cantidad < MAX_USUARIOS) {

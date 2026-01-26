@@ -2,15 +2,15 @@ public class App {
     public static void main(String[] args) throws Exception {
         Libros libro = new Libros("Hola", "hola", "Salud");
 
-        gestoraLibros gestor = new gestoraLibros();
-        gestor.anadirLibros(libro);
+        gestoraLibros gestorLibro = new gestoraLibros();
+        gestorLibro.anadirLibros(libro);
         Libros librodos = new Libros("un monstruo viene a verme", "Stephen King", "miedo");
-        gestor.anadirLibros(librodos);
-        gestor.mostrarLibros();
-        gestor.mostrarLibrosPorCategoria("miedo");
+        gestorLibro.anadirLibros(librodos);
+        gestorLibro.mostrarLibros();
+        gestorLibro.mostrarLibrosPorCategoria("miedo");
         
-        gestor.eliminarLibros("Hola");
-        gestor.mostrarLibros();
+        gestorLibro.eliminarLibros("Hola");
+        gestorLibro.mostrarLibros();
 
         Usuario usuario1 = new Usuario(true);
 
