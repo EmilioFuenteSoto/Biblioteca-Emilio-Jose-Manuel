@@ -2,18 +2,18 @@ import java.util.Arrays;
 
 public class GestoraLibros {
     private int cantidad;
-    private Libros[] libros_personas;
+    private Libros[] librosPersonas;
     private static final int MAX_LIBROS = 100;
 
     public GestoraLibros() {
-        this.libros_personas = new Libros[MAX_LIBROS];
+        this.librosPersonas = new Libros[MAX_LIBROS];
         this.cantidad = 0;
     }
 
     // Metodo cuya función se encarga de añadir libros nuevos
     public boolean anadirLibros(Libros libro) {
         if (cantidad < MAX_LIBROS) {
-            libros_personas[cantidad] = libro;
+            librosPersonas[cantidad] = libro;
             cantidad++;
             return true;
         }
@@ -25,16 +25,16 @@ public class GestoraLibros {
     public Libros[] buscarPorTitulo(String titulo) {
 
         int pos = 0;
-        Libros[] libros_encontrados_por_titulo = new Libros[cantidad];
+        Libros[] librosEncontradosPorTitulo = new Libros[cantidad];
         for (int i = 0; i < cantidad; i++) {
-            if (libros_personas[i].getTitulo().equals(titulo)) {
-                libros_encontrados_por_titulo[pos] = libros_personas[i];
+            if (librosPersonas[i].getTitulo().equals(titulo)) {
+                librosEncontradosPorTitulo[pos] = librosPersonas[i];
                 pos++;
             }
 
         }
 
-        return Arrays.copyOf(libros_encontrados_por_titulo, pos);
+        return Arrays.copyOf(librosEncontradosPorTitulo, pos);
 
     }
 
@@ -44,8 +44,8 @@ public class GestoraLibros {
         int pos = 0;
         Libros[] libros_encontrados_por_autor = new Libros[cantidad];
         for (int i = 0; i < cantidad; i++) {
-            if (libros_personas[i].getAutor().equals(autor)) {
-                libros_encontrados_por_autor[pos] = libros_personas[i];
+            if (librosPersonas[i].getAutor().equals(autor)) {
+                libros_encontrados_por_autor[pos] = librosPersonas[i];
                 pos++;
             }
 
@@ -59,8 +59,8 @@ public class GestoraLibros {
         int pos = 0;
         Libros[] libros_encontrados_por_categoria = new Libros[cantidad];
         for (int i = 0; i < cantidad; i++) {
-            if (libros_personas[i].getCategoria().equals(categoria)) {
-                libros_encontrados_por_categoria[pos] = libros_personas[i];
+            if (librosPersonas[i].getCategoria().equals(categoria)) {
+                libros_encontrados_por_categoria[pos] = librosPersonas[i];
                 pos++;
             }
 
@@ -73,9 +73,9 @@ public class GestoraLibros {
     public boolean eliminarLibros(String titulo) {
         boolean eliminado = false;
         for (int i = 0; i < cantidad; i++) {
-            if (libros_personas[i].getTitulo().equals(titulo)) {
+            if (librosPersonas[i].getTitulo().equals(titulo)) {
                 for (int j = i; j < cantidad - 1; j++) {
-                    libros_personas[j] = libros_personas[j + 1];
+                    librosPersonas[j] = librosPersonas[j + 1];
                 }
                 cantidad--;
 
@@ -94,7 +94,7 @@ public class GestoraLibros {
     public String toString() {
         String infoLibros = "";
         for(int i =0; i < cantidad; i++){
-            infoLibros+=libros_personas[i].toString();
+            infoLibros+=librosPersonas[i].toString();
         }
         return infoLibros;
     }

@@ -1,10 +1,10 @@
 public class Biblioteca {
     private GestoraLibros gestoraLibros;
-    private GestoraUsuarios gestorausuarios;
+    private GestoraUsuarios gestoraUsuarios;
 
     public Biblioteca(GestoraUsuarios gu, GestoraLibros gl) {
         this.gestoraLibros = gl;
-        this.gestorausuarios = gu;
+        this.gestoraUsuarios = gu;
     }
 
     public boolean anadirLibros(Libros libro) {
@@ -12,7 +12,7 @@ public class Biblioteca {
     }
 
     public boolean añadirUsuarios(Usuario usuario){
-        return gestorausuarios.anadirUsuarios(usuario);
+        return gestoraUsuarios.anadirUsuarios(usuario);
         
     }
 
@@ -29,20 +29,33 @@ public class Biblioteca {
     }
 
     public boolean validacionUsuario(String usuario, String contrasena) {
-        return gestorausuarios.comprobar_Existencia_Usuario(usuario, contrasena);
+        return gestoraUsuarios.comprobarExistenciaUsuario(usuario, contrasena);
 
     }
 
+    public boolean eliminarUsuario(String usuario){
+        return gestoraUsuarios.eliminarUsuario(usuario);
+    }
+
+    public boolean eliminarLibros(String titulo){
+        return gestoraLibros.eliminarLibros(titulo);
+    }
+
+
     public boolean validarAdmin(Usuario usuario) {
-        return gestorausuarios.esAdmin(usuario);
+        return gestoraUsuarios.esAdmin(usuario);
     }
 
     public Usuario obtenerUsuario(String usuario, String contrasena) {
-        return gestorausuarios.obtenerUsuarioReal(usuario, contrasena);
+        return gestoraUsuarios.obtenerUsuarioReal(usuario, contrasena);
     }
 
     public String mostrarLibros(){
         return gestoraLibros.toString();
+    }
+
+    public String mostrarUsuarios(){
+        return gestoraUsuarios.toString();
     }
 
 }

@@ -57,7 +57,7 @@ public class ComUsuario {
 
     }
 
-    public void Login() {
+    public void login() {
         System.out.println("Introduce el nombre de usuario");
         String usuario = sc.nextLine();
 

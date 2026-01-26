@@ -18,10 +18,6 @@ public class GestoraUsuarios {
         }
     }
 
-    // @Override
-    // public String toString(Usuario usuario) {
-
-    // }
 
     public boolean anadirUsuarios(Usuario usuario) {
         if (cantidad < MAX_USUARIOS) {
@@ -45,7 +41,7 @@ public class GestoraUsuarios {
 
     }
 
-    public boolean comprobar_Existencia_Usuario(String usuario, String contrasena) {
+    public boolean comprobarExistenciaUsuario(String usuario, String contrasena) {
         boolean usuarioCorrecto = false;
         for (int i = 0; i < cantidad; i++) {
             if (listaUsuarios[i].getNombreUsuario().equals(usuario)
@@ -59,11 +55,39 @@ public class GestoraUsuarios {
 
     }
 
-    // public void anadirUsuariosAdmin(Usuario usuario){
-    // if (cantidad < MAX_USUARIOS) {
-    // listaUsuarios[cantidad] = usuario;
-    // cantidad++;
-    //
-    // }
-    // }
+    public void anadirUsuariosAdmin(Usuario usuario){
+    if (cantidad < MAX_USUARIOS) {
+    listaUsuarios[cantidad] = usuario;
+    cantidad++;
+    
+    }
+    }
+
+    public boolean eliminarUsuario(String usuario){
+        boolean eliminado = false;
+        for (int i = 0; i < cantidad; i++) {
+            if (listaUsuarios[i].getNombreUsuario().equals(usuario)) {
+                for (int j = i; j < cantidad - 1; j++) {
+                    listaUsuarios[j] = listaUsuarios[j + 1];
+                }
+                cantidad--;
+
+                i--;
+
+                eliminado = true;
+
+            }
+
+        }
+        return eliminado;
+    }
+
+    @Override
+    public String toString() {
+        String infoUsuarios = "";
+        for(int i =0; i < cantidad; i++){
+            infoUsuarios+=listaUsuarios[i].toString();
+        }
+        return infoUsuarios;
+    }
 }
