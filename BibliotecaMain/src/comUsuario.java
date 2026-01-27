@@ -34,20 +34,23 @@ public class ComUsuario {
 
     }
 
-    public void addUsuarios() {
+    public void addUsuarios(int i) {
 
-        System.out.println("Has elegido la opcion 1 que es añadir libros sr Admin");
-        System.out.println();
-
-        System.out.println("Introduce tu usuario");
+        System.out.println("Introduce un nuevo nombre de usuario");
         String Usuario = sc.nextLine();
 
-        System.out.println("Introduce tu contraseña");
+        System.out.println("Introduce una nueva contraseña");
         String contrasena = sc.nextLine();
+        Usuario usuario;
 
-        Usuario usuario = new Usuario(Usuario, contrasena);
+        if(i == 1){
+            usuario = new Usuario(Usuario, contrasena, false);
+        } else {
+            usuario = new Usuario(Usuario, contrasena, true);
+        }
 
-        boolean accion = biblioteca.añadirUsuarios(usuario);
+        boolean accion = biblioteca.anadirUsuarios(usuario);
+        
 
         if (accion) {
             System.out.println("El usuario se ha añadido");
@@ -103,15 +106,16 @@ public class ComUsuario {
 
         while (salida) {
             System.out.println("=== MENU ADMIN ===");
-            System.out.println("1. Ver Libros");
+            System.out.println("1. Mostrar Libros");
             System.out.println("2. Añadir Libro");
             System.out.println("3. Buscar por Autor");
             System.out.println("4. Buscar por Categoria");
             System.out.println("5. Buscar por Titulo");
             System.out.println("6. Añadir Usuarios");
-            System.out.println("7. Mostrar Usuarios");
-            System.out.println("8. Eliminar Libro");
-            System.out.println("9. Salir");
+            System.out.println("7. Añadir Admin");
+            System.out.println("8. Mostrar Usuarios");
+            System.out.println("9. Eliminar Libro");
+            System.out.println("10. Salir");
 
             int opcion = Integer.parseInt(sc.nextLine());
 
@@ -121,10 +125,11 @@ public class ComUsuario {
                 case 3 -> buscarPorAutor();
                 case 4 -> buscarPorCtegoria();
                 case 5 -> buscarPorTitulo();
-                case 6 -> addUsuarios();
-                case 7 -> mostrarTodosUsuarios();
-                case 8 -> eliminarLibros();
-                case 9 -> salida = false;
+                case 6 -> addUsuarios(1);
+                case 7 -> addUsuarios(2);
+                case 8 -> mostrarTodosUsuarios();
+                case 9 -> eliminarLibros();
+                case 10 -> salida = false;
 
             }
         }

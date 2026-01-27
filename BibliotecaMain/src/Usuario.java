@@ -12,9 +12,11 @@ public class Usuario {
         this.contrasena = "1234";
     }
 
-    public Usuario(String usuario, String contrasena){
+
+    public Usuario(String usuario, String contrasena, boolean admin){
         this.contrasena = contrasena;
         this.nombreUsuario= usuario;
+        this.admin = admin;
     }
 
     public Usuario(boolean admin){

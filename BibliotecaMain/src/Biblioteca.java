@@ -11,7 +11,7 @@ public class Biblioteca {
         return gestoraLibros.anadirLibros(libro);
     }
 
-    public boolean añadirUsuarios(Usuario usuario){
+    public boolean anadirUsuarios(Usuario usuario){
         return gestoraUsuarios.anadirUsuarios(usuario);
         
     }

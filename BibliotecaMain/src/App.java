@@ -12,7 +12,7 @@ public class App {
         Usuario admin = new Usuario(true);
         admin.setNombreUsuario("jose");
         admin.setContrasena("1234");
-        biblioteca.añadirUsuarios(admin);
+        biblioteca.anadirUsuarios(admin);
         comUsuarios.login();
 
         
