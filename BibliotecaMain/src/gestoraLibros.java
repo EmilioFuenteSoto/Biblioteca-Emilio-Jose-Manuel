@@ -3,10 +3,12 @@ import java.util.Arrays;
 public class GestoraLibros {
     private int cantidad;
     private Libros[] librosPersonas;
+    private Libros[] prestamosLibros;
     private static final int MAX_LIBROS = 100;
 
     public GestoraLibros() {
         this.librosPersonas = new Libros[MAX_LIBROS];
+        this.prestamosLibros = new Libros[MAX_LIBROS];
         this.cantidad = 0;
     }
 
@@ -98,6 +100,20 @@ public class GestoraLibros {
         }
         return infoLibros;
     }
+
+    /*
+    public boolean prestamoLibros(String titulo){
+        boolean prestamo_exitoso = false;
+
+        for(int i =0; i< cantidad; i++){
+            if(librosPersonas[i].getTitulo().equals(titulo)){
+               // Libro variablei= librosPersonas[i];
+            }
+
+        }
+    }
+    */
+    
 
     
 
