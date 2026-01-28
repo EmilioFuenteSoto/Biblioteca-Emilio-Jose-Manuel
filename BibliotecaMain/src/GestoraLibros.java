@@ -3,15 +3,15 @@ import java.util.Arrays;
 public class GestoraLibros {
     private int cantidad;
     private Libros[] librosPersonas;
-    private Libros[] prestamosLibros;
+    private Libros[] librosPrestados;
     private static final int MAX_LIBROS = 100;
-    private int prestadoscantidad;
+    private int prestadosCantidad;
 
     public GestoraLibros() {
         this.librosPersonas = new Libros[MAX_LIBROS];
-        this.prestamosLibros = new Libros[MAX_LIBROS];
+        this.librosPrestados = new Libros[MAX_LIBROS];
         this.cantidad = 0;
-        this.prestadoscantidad = 0;
+        this.prestadosCantidad = 0;
     }
 
     // Metodo cuya función se encarga de añadir libros nuevos
@@ -96,12 +96,12 @@ public class GestoraLibros {
 
     public boolean eliminarLibrosPrestados(String titulo) {
         boolean eliminado = false;
-        for (int i = 0; i < prestadoscantidad; i++) {
-            if (prestamosLibros[i].getTitulo().equals(titulo)) {
-                for (int j = i; j < prestadoscantidad - 1; j++) {
-                    prestamosLibros[j] = prestamosLibros[j + 1];
+        for (int i = 0; i < prestadosCantidad; i++) {
+            if (librosPrestados[i].getTitulo().equals(titulo)) {
+                for (int j = i; j < prestadosCantidad - 1; j++) {
+                    librosPrestados[j] = librosPrestados[j + 1];
                 }
-                prestadoscantidad--;
+                prestadosCantidad--;
 
                 i--;
 
@@ -119,47 +119,52 @@ public class GestoraLibros {
         String infoLibros = "";
         for (int i = 0; i < cantidad; i++) {
             infoLibros += librosPersonas[i].toString();
+            infoLibros += "\n";
+        }
+        return infoLibros;
+    }
+
+    public String mostrarLibrosPrestados() {
+        String infoLibros = "";
+        for (int i = 0; i < prestadosCantidad; i++) {
+            infoLibros += librosPrestados[i].toString();
+            infoLibros += "\n";
         }
         return infoLibros;
     }
 
     public boolean prestamoLibros(String titulo) {
-        boolean prestamo_exitoso = false;
+        boolean prestamoExitoso = false;
         for (int i = 0; i < cantidad; i++) {
             if (librosPersonas[i].getTitulo().equals(titulo)) {
-                prestamosLibros[prestadoscantidad] = librosPersonas[i];
-                prestadoscantidad++;
+                librosPrestados[prestadosCantidad] = librosPersonas[i];
+                prestadosCantidad++;
+                librosPersonas[i].setPrestamosLibros(librosPersonas[i].getPrestamosLibro() + 1); 
                 eliminarLibros(titulo);
-                return prestamo_exitoso = true;
+                return prestamoExitoso = true;
             }
 
         }
 
-        return prestamo_exitoso;
+        return prestamoExitoso;
     }
 
     public boolean devolverLibroPrestado(String titulo) {
-        boolean prestamo_exitoso = false;
+        boolean prestamoExitoso = false;
 
-        for (int i = 0; i < prestadoscantidad; i++) {
-            if (prestamosLibros[i].getTitulo().equals(titulo)) {
-                librosPersonas[cantidad] = prestamosLibros[i];
+        for (int i = 0; i < prestadosCantidad; i++) {
+            if (librosPrestados[i].getTitulo().equals(titulo)) {
+                librosPersonas[cantidad] = librosPrestados[i];
                 cantidad++;
                 eliminarLibrosPrestados(titulo);
-                return prestamo_exitoso = true;
+                return prestamoExitoso = true;
             }
 
         }
 
-        return prestamo_exitoso;
+        return prestamoExitoso;
     }
 
-    public String mostrarLibrosPrestados() {
-        String infoLibros = "";
-        for (int i = 0; i < prestadoscantidad; i++) {
-            infoLibros += prestamosLibros[i].toString();
-        }
-        return infoLibros;
-    }
+    
 
 }

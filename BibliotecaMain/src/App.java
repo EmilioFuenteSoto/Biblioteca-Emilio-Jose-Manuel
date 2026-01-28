@@ -14,6 +14,14 @@ public class App {
         admin.setContrasena("1234");
         biblioteca.anadirUsuarios(admin);
 
+        Libros libro1 = new Libros("Harry Potter", "J K Rowling", "Misterio");
+        Libros libro2 = new Libros("Imperio Final", "Brandon Sanderson", "Fantasía");
+        Libros libro3 = new Libros("IT", "Stephen King", "Miedo");
+
+        biblioteca.anadirLibros(libro3);
+        biblioteca.anadirLibros(libro2);
+        biblioteca.anadirLibros(libro1);
+
         Usuario usuario1 = new Usuario("emi", "emi", false);
         biblioteca.anadirUsuarios(usuario1);
 

@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import javax.sql.rowset.spi.SyncResolver;
+
 public class ComUsuario {
     private Biblioteca biblioteca;
 
@@ -35,13 +37,13 @@ public class ComUsuario {
     }
 
     public void addLibrosPrestados() {
-        System.out.println("Elige el libro que quieres prestar");
+        System.out.println("Escribe el titulo del libro que quieres pedir prestado");
 
         String libros = sc.nextLine();
 
-        boolean anadir_Libros = biblioteca.anadirLibrosPrestados(libros);
+        boolean anadirLibros = biblioteca.anadirLibrosPrestados(libros);
 
-        if (anadir_Libros) {
+        if (anadirLibros) {
             System.out.println("Se te ha prestado el libro correctamente");
         } else {
             System.out.println("No se ha hecho el prestamo del libro correctamente");
@@ -141,12 +143,13 @@ public class ComUsuario {
             System.out.println("3. Buscar por Autor");
             System.out.println("4. Buscar por Categoria");
             System.out.println("5. Buscar por Titulo");
-            System.out.println("6. Añadir Usuarios");
+            System.out.println("6. Añadir Usuarios\n");
+            System.out.println("Funciones Admin");
             System.out.println("7. Añadir Admin");
             System.out.println("8. Mostrar Usuarios");
             System.out.println("9. Eliminar Libro");
             System.out.println("10. Mostrar los libros prestados");
-            System.out.println("11. Realizar el prestamo de un libro");
+            System.out.println("11. Pedir el prestamo de un libro");
             System.out.println("12. Devolver un libro a la biblioteca");
             System.out.println("13. Salir");
 
@@ -198,7 +201,6 @@ public class ComUsuario {
                 case 13 -> salida = false;
             }
         }
-
     }
 
     
@@ -216,7 +218,6 @@ public class ComUsuario {
             }
         } else {
             System.out.println("No hay ningun libro asociado a este autor");
-
         }
     }
 
@@ -231,7 +232,6 @@ public class ComUsuario {
             }
         } else {
             System.out.println("No hay libros en esta categoria");
-
         }
     }
 
@@ -246,8 +246,6 @@ public class ComUsuario {
             }
         } else {
             System.out.println("No hay libros asociados a este autor");
-
         }
     }
-
 }

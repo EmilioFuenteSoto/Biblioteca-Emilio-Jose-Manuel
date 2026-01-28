@@ -2,6 +2,7 @@ public class Libros {
     private String titulo;
     private String autor;
     private String categoria;
+    private int prestamosLibro;
     
     
     //Constructores
@@ -30,11 +31,21 @@ public class Libros {
         return autor;
     }
 
+    
+    public int getPrestamosLibro(){
+        return prestamosLibro;
+    }
+
     public String getCategoria() {
         return categoria;
     }
 
     // Setters
+
+    public void setPrestamosLibros(int prestamosLibro){
+        this.prestamosLibro = prestamosLibro;
+    }
+
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
@@ -50,7 +61,7 @@ public class Libros {
     @Override
     public String toString() {
         // TODO Auto-generated method stub
-        return "Nombre del libro: " + getTitulo() + " Autor del libro: " + getAutor() + " Categoria del libro: " + getCategoria();
+        return "\nNombre del libro: " + getTitulo() + "\nAutor del libro: " + getAutor() + "\nCategoria del libro: " + getCategoria();
     }
 
 
