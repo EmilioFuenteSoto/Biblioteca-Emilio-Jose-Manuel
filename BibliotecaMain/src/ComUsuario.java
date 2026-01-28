@@ -3,6 +3,7 @@ import java.util.Scanner;
 import javax.sql.rowset.spi.SyncResolver;
 
 public class ComUsuario {
+    private Usuario usuarioReal;
     private Biblioteca biblioteca;
     private static final String ANSI_BLACK = "\u001B[30m";
     private static final String ANSI_RED = "\u001B[31m";
@@ -52,7 +53,7 @@ public class ComUsuario {
 
         String libros = sc.nextLine();
 
-        boolean anadirLibros = biblioteca.anadirLibrosPrestados(libros);
+        boolean anadirLibros = biblioteca.anadirLibrosPrestados(libros, usuarioReal);
 
         if (anadirLibros) {
             System.out.println("Se te ha prestado el libro correctamente");
@@ -98,7 +99,7 @@ public class ComUsuario {
         if (!usuario2) {
             System.out.println("Introduce el usuario y la contraseña correcto");
         }
-        Usuario usuarioReal = biblioteca.obtenerUsuario(usuario, contrasena);
+        usuarioReal = biblioteca.obtenerUsuario(usuario, contrasena);
 
         boolean esAdmin = biblioteca.validarAdmin(usuarioReal);
 

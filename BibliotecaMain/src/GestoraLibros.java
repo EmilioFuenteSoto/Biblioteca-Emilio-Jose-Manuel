@@ -133,12 +133,13 @@ public class GestoraLibros {
         return infoLibros;
     }
 
-    public boolean prestamoLibros(String titulo) {
+    public boolean prestamoLibros(String titulo, Usuario usuario) {
         boolean prestamoExitoso = false;
         for (int i = 0; i < cantidad; i++) {
             if (librosPersonas[i].getTitulo().equals(titulo)) {
                 librosPrestados[prestadosCantidad] = librosPersonas[i];
                 prestadosCantidad++;
+                usuario.setPrestamosUsuario(usuario.getPrestamosUsuario() + 1);
                 librosPersonas[i].setPrestamosLibros(librosPersonas[i].getPrestamosLibro() + 1); 
                 eliminarLibros(titulo);
                 return prestamoExitoso = true;

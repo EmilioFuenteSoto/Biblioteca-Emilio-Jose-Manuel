@@ -62,8 +62,8 @@ public class Biblioteca {
         return gestoraLibros.mostrarLibrosPrestados();
     }
 
-     public boolean anadirLibrosPrestados(String titulo) {
-        return gestoraLibros.prestamoLibros(titulo);
+     public boolean anadirLibrosPrestados(String titulo, Usuario usuario) {
+        return gestoraLibros.prestamoLibros(titulo, usuario);
     }
 
     public boolean devolverLibrosPres(String titulo){

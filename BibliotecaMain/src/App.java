@@ -25,10 +25,6 @@ public class App {
         Usuario usuario1 = new Usuario("emi", "emi", false);
         biblioteca.anadirUsuarios(usuario1);
 
-        Libros libro1 = new Libros("un monstruo viene verme", "stphen king", "miedo");
-
-        biblioteca.anadirLibros(libro1);
-
 
         comUsuarios.login();
 

@@ -4,6 +4,7 @@ public class Usuario {
     private String nombreUsuario;
     private String contrasena;
     private int prestamosUsuario;
+    private Libros[] librosEnPosesion;
     
 
     //Constructores
@@ -11,6 +12,7 @@ public class Usuario {
         this.admin = false;
         this.nombreUsuario = "none";
         this.contrasena = "1234";
+        this.librosEnPosesion = new Libros [100];
     }
 
 
@@ -38,6 +40,14 @@ public class Usuario {
             this.nombreUsuario = nombre;
         }
         
+    }
+
+    public int getPrestamosUsuario(){
+        return this.prestamosUsuario;
+    }
+
+    public void setPrestamosUsuario(int prestamosUsuario){
+        this.prestamosUsuario = prestamosUsuario;
     }
 
     public void setContrasena(String contrasena){
