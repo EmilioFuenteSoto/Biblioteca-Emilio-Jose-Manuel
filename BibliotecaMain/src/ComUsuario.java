@@ -34,6 +34,20 @@ public class ComUsuario {
 
     }
 
+    public void addLibrosPrestados() {
+        System.out.println("Elige el libro que quieres prestar");
+
+        String libros = sc.nextLine();
+
+        boolean anadir_Libros = biblioteca.anadirLibrosPrestados(libros);
+
+        if (anadir_Libros) {
+            System.out.println("Se te ha prestado el libro correctamente");
+        } else {
+            System.out.println("No se ha hecho el prestamo del libro correctamente");
+        }
+    }
+
     public void addUsuarios(int i) {
 
         System.out.println("Introduce un nuevo nombre de usuario");
@@ -43,14 +57,13 @@ public class ComUsuario {
         String contrasena = sc.nextLine();
         Usuario usuario;
 
-        if(i == 1){
+        if (i == 1) {
             usuario = new Usuario(Usuario, contrasena, false);
         } else {
             usuario = new Usuario(Usuario, contrasena, true);
         }
 
         boolean accion = biblioteca.anadirUsuarios(usuario);
-        
 
         if (accion) {
             System.out.println("El usuario se ha añadido");
@@ -86,7 +99,7 @@ public class ComUsuario {
         System.out.println(biblioteca.mostrarLibros());
     }
 
-     public void mostrarTodosLibrosPrestados() {
+    public void mostrarTodosLibrosPrestados() {
         System.out.println(biblioteca.mostrarLibrosPrestados());
     }
 
@@ -97,12 +110,23 @@ public class ComUsuario {
     public void eliminarLibros() {
         System.out.println("Introduce el título del libro a borrar");
         String titulo = sc.nextLine();
-        if(biblioteca.eliminarLibros(titulo)){
-             System.out.println("Libro " + titulo + " eliminado correctamente");
+        if (biblioteca.eliminarLibros(titulo)) {
+            System.out.println("Libro " + titulo + " eliminado correctamente");
         } else {
-             System.out.println("No se pudo borrar " + titulo);
+            System.out.println("No se pudo borrar " + titulo);
         }
-        
+
+    }
+
+    public void devolverLibrosPrestados() {
+        System.out.println("Introduce el titulo del libro que quieres devolver");
+        String titulo = sc.nextLine();
+
+        if (biblioteca.devolverLibrosPres(titulo)) {
+            System.out.println("Libro devueltamente correctamente a la biblioteca");
+        } else {
+            System.out.println("No existe el libro que quieres devolver");
+        }
     }
 
     public void mostrarMenuAdmin(Usuario usuario) {
@@ -119,7 +143,10 @@ public class ComUsuario {
             System.out.println("7. Añadir Admin");
             System.out.println("8. Mostrar Usuarios");
             System.out.println("9. Eliminar Libro");
-            System.out.println("10. Salir");
+            System.out.println("10. Mostrar los libros prestados");
+            System.out.println("11. Realizar el prestamo de un libro");
+            System.out.println("12. Devolver un libro a la biblioteca");
+            System.out.println("13. Salir");
 
             int opcion = Integer.parseInt(sc.nextLine());
 
@@ -133,10 +160,10 @@ public class ComUsuario {
                 case 7 -> addUsuarios(2);
                 case 8 -> mostrarTodosUsuarios();
                 case 9 -> eliminarLibros();
-                case 10 -> salida = false;
-                case 11 -> mostrarTodosLibrosPrestados();
-                
-
+                case 10 -> mostrarTodosLibrosPrestados();
+                case 11 -> addLibrosPrestados();
+                case 12 -> devolverLibrosPrestados();
+                case 13 -> salida = false;
             }
         }
 

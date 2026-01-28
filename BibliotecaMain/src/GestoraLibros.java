@@ -96,12 +96,12 @@ public class GestoraLibros {
 
     public boolean eliminarLibrosPrestados(String titulo) {
         boolean eliminado = false;
-        for (int i = 0; i < cantidad; i++) {
+        for (int i = 0; i < prestadoscantidad; i++) {
             if (prestamosLibros[i].getTitulo().equals(titulo)) {
-                for (int j = i; j < cantidad - 1; j++) {
+                for (int j = i; j < prestadoscantidad - 1; j++) {
                     prestamosLibros[j] = prestamosLibros[j + 1];
                 }
-                cantidad--;
+                prestadoscantidad--;
 
                 i--;
 
@@ -123,12 +123,11 @@ public class GestoraLibros {
         return infoLibros;
     }
 
-    public boolean prestamoLibros(Libros libro) {
+    public boolean prestamoLibros(String titulo) {
         boolean prestamo_exitoso = false;
-        String titulo = " ";
         for (int i = 0; i < cantidad; i++) {
             if (librosPersonas[i].getTitulo().equals(titulo)) {
-                prestamosLibros[prestadoscantidad] = libro;
+                prestamosLibros[prestadoscantidad] = librosPersonas[i];
                 prestadoscantidad++;
                 eliminarLibros(titulo);
                 return prestamo_exitoso = true;
@@ -142,10 +141,10 @@ public class GestoraLibros {
     public boolean devolverLibroPrestado(String titulo) {
         boolean prestamo_exitoso = false;
 
-        for (int i = 0; i < cantidad; i++) {
+        for (int i = 0; i < prestadoscantidad; i++) {
             if (prestamosLibros[i].getTitulo().equals(titulo)) {
-                librosPersonas[prestadoscantidad] = prestamosLibros[i];
-                prestadoscantidad++;
+                librosPersonas[cantidad] = prestamosLibros[i];
+                cantidad++;
                 eliminarLibrosPrestados(titulo);
                 return prestamo_exitoso = true;
             }
@@ -157,7 +156,7 @@ public class GestoraLibros {
 
     public String mostrarLibrosPrestados() {
         String infoLibros = "";
-        for (int i = 0; i < cantidad; i++) {
+        for (int i = 0; i < prestadoscantidad; i++) {
             infoLibros += prestamosLibros[i].toString();
         }
         return infoLibros;
