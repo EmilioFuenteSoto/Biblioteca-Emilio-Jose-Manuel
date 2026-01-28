@@ -86,6 +86,10 @@ public class ComUsuario {
         System.out.println(biblioteca.mostrarLibros());
     }
 
+     public void mostrarTodosLibrosPrestados() {
+        System.out.println(biblioteca.mostrarLibrosPrestados());
+    }
+
     public void mostrarTodosUsuarios() {
         System.out.println(biblioteca.mostrarUsuarios());
     }
@@ -130,6 +134,8 @@ public class ComUsuario {
                 case 8 -> mostrarTodosUsuarios();
                 case 9 -> eliminarLibros();
                 case 10 -> salida = false;
+                case 11 -> mostrarTodosLibrosPrestados();
+                
 
             }
         }

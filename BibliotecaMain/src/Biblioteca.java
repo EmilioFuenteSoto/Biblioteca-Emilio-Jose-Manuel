@@ -58,4 +58,12 @@ public class Biblioteca {
         return gestoraUsuarios.toString();
     }
 
+    public String mostrarLibrosPrestados(){
+        return gestoraLibros.mostrarLibrosPrestados();
+    }
+
+     public boolean anadirLibrosPrestados(Libros libro) {
+        return gestoraLibros.prestamoLibros(libro);
+    }
+
 }
