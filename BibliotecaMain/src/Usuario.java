@@ -3,6 +3,7 @@ public class Usuario {
     private boolean admin;
     private String nombreUsuario;
     private String contrasena;
+    private int prestamos;
     
 
     //Constructores
