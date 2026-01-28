@@ -5,11 +5,13 @@ public class GestoraLibros {
     private Libros[] librosPersonas;
     private Libros[] prestamosLibros;
     private static final int MAX_LIBROS = 100;
+    private int prestadoscantidad;
 
     public GestoraLibros() {
         this.librosPersonas = new Libros[MAX_LIBROS];
         this.prestamosLibros = new Libros[MAX_LIBROS];
         this.cantidad = 0;
+        this.prestadoscantidad=0;
     }
 
     // Metodo cuya función se encarga de añadir libros nuevos
@@ -101,18 +103,23 @@ public class GestoraLibros {
         return infoLibros;
     }
 
-    /*
+    
     public boolean prestamoLibros(String titulo){
         boolean prestamo_exitoso = false;
 
         for(int i =0; i< cantidad; i++){
             if(librosPersonas[i].getTitulo().equals(titulo)){
-               // Libro variablei= librosPersonas[i];
+               prestamosLibros[prestadoscantidad] = librosPersonas[i];
+               prestadoscantidad++;
+                eliminarLibros(titulo);
+                return prestamo_exitoso = true;
             }
 
         }
+
+        return prestamo_exitoso;
     }
-    */
+    
     
 
     
