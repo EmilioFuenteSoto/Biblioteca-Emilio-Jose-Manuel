@@ -4,6 +4,17 @@ import javax.sql.rowset.spi.SyncResolver;
 
 public class ComUsuario {
     private Biblioteca biblioteca;
+    private static final String ANSI_BLACK = "\u001B[30m";
+    private static final String ANSI_RED = "\u001B[31m";
+    private static final String ANSI_GREEN = "\u001B[32m";
+    private static final String ANSI_YELLOW = "\u001B[33m";
+    private static final String ANSI_BLUE = "\u001B[34m";
+    private static final String ANSI_PURPLE = "\u001B[35m";
+    private static final String ANSI_CYAN = "\u001B[36m";
+    private static final String ANSI_GREY = "\u001B[90m";
+    private static final String ANSI_WHITE = "\u001B[37m";
+    private static final String[] colores = { ANSI_BLACK, ANSI_CYAN, ANSI_BLUE, ANSI_YELLOW, ANSI_GREEN, ANSI_PURPLE,
+            ANSI_RED, ANSI_GREY };
 
     public ComUsuario(Biblioteca biblioteca) {
         this.biblioteca = biblioteca;
@@ -93,7 +104,7 @@ public class ComUsuario {
 
         if (esAdmin) {
             mostrarMenuAdmin(usuarioReal);
-        }else{
+        } else {
             mostrarMenuUsuario(usuarioReal);
         }
 
@@ -137,75 +148,71 @@ public class ComUsuario {
         boolean salida = true;
 
         while (salida) {
-            System.out.println("=== MENU ADMIN ===");
-            System.out.println("1. Mostrar Libros");
-            System.out.println("2. Añadir Libro");
-            System.out.println("3. Buscar por Autor");
-            System.out.println("4. Buscar por Categoria");
-            System.out.println("5. Buscar por Titulo");
-            System.out.println("6. Añadir Usuarios\n");
-            System.out.println("Funciones Admin");
-            System.out.println("7. Añadir Admin");
-            System.out.println("8. Mostrar Usuarios");
-            System.out.println("9. Eliminar Libro");
-            System.out.println("10. Mostrar los libros prestados");
-            System.out.println("11. Pedir el prestamo de un libro");
-            System.out.println("12. Devolver un libro a la biblioteca");
-            System.out.println("13. Salir");
+            System.out.println("=== OPCIONES USUARIO NORMAL ===");
+            System.out.println(ANSI_BLUE + "1. Mostrar Libros" + ANSI_WHITE);
+            System.out.println(ANSI_BLUE + "2. Buscar por Autor" + ANSI_WHITE);
+            System.out.println(ANSI_BLUE + "3. Buscar por Categoria"+ ANSI_WHITE);
+            System.out.println(ANSI_BLUE + "4. Buscar por Titulo"+ ANSI_WHITE);
+            System.out.println( ANSI_BLUE + "5. Realizar el prestamo de un libro" + ANSI_WHITE);
+            System.out.println(ANSI_BLUE + "6. Devolver un libro a la biblioteca" + ANSI_WHITE);
+            System.out.println();
+            System.out.println("== OPCIONES ADMIN ==");
+            System.out.println(ANSI_RED + "7. Añadir Libro" + ANSI_WHITE);
+            System.out.println(ANSI_RED +"8. Añadir Usuarios"+ ANSI_WHITE);
+            System.out.println(ANSI_RED +"9. Añadir Admin"+ ANSI_WHITE);
+            System.out.println(ANSI_RED +"10. Mostrar Usuarios"+ ANSI_WHITE);
+            System.out.println(ANSI_RED +"11. Eliminar Libro"+ ANSI_WHITE);
+             System.out.println(ANSI_RED +"12. Mostrar los libros prestados"+ ANSI_WHITE);
+            System.out.println(ANSI_RED +"13. Salir"+ ANSI_WHITE);
 
             int opcion = Integer.parseInt(sc.nextLine());
 
             switch (opcion) {
                 case 1 -> mostrarTodosLibros();
-                case 2 -> addLibros();
-                case 3 -> buscarPorAutor();
-                case 4 -> buscarPorCtegoria();
-                case 5 -> buscarPorTitulo();
-                case 6 -> addUsuarios(1);
-                case 7 -> addUsuarios(2);
-                case 8 -> mostrarTodosUsuarios();
-                case 9 -> eliminarLibros();
-                case 10 -> mostrarTodosLibrosPrestados();
-                case 11 -> addLibrosPrestados();
-                case 12 -> devolverLibrosPrestados();
+                case 2 -> buscarPorAutor();
+                case 3 -> buscarPorCtegoria();
+                case 4 -> buscarPorTitulo();
+                case 5 -> addLibrosPrestados();
+                case 6 -> devolverLibrosPrestados();
+
+                case 7 -> addLibros();
+                case 8 -> addUsuarios(1);
+                case 9 -> addUsuarios(2);
+                case 10 -> mostrarTodosUsuarios();
+                case 11 -> eliminarLibros();
+                case 12 -> mostrarTodosLibrosPrestados();
                 case 13 -> salida = false;
             }
         }
 
     }
 
-     public void mostrarMenuUsuario(Usuario usuario) {
+    public void mostrarMenuUsuario(Usuario usuario) {
         boolean salida = true;
 
         while (salida) {
             System.out.println("=== MENU USUARIO ===");
-            System.out.println("1. Mostrar Libros");
-            System.out.println("3. Buscar por Autor");
-            System.out.println("4. Buscar por Categoria");
-            System.out.println("5. Buscar por Titulo");
-            System.out.println("11. Realizar el prestamo de un libro");
-            System.out.println("12. Devolver un libro a la biblioteca");
-            System.out.println("13. Salir");
+            System.out.println(ANSI_CYAN + "1. Mostrar Libros " + ANSI_WHITE);
+            System.out.println(ANSI_CYAN + "2. Buscar por Autor" + ANSI_WHITE);
+            System.out.println(ANSI_CYAN + "3. Buscar por Categoria" + ANSI_WHITE);
+            System.out.println(ANSI_CYAN + "4. Buscar por Titulo" + ANSI_WHITE);
+            System.out.println(ANSI_CYAN + "5. Realizar el prestamo de un libro" + ANSI_WHITE);
+            System.out.println(ANSI_CYAN + "6. Devolver un libro a la biblioteca" + ANSI_WHITE);
+            System.out.println(ANSI_CYAN + "7. Salir" + ANSI_WHITE);
 
             int opcion = Integer.parseInt(sc.nextLine());
 
             switch (opcion) {
                 case 1 -> mostrarTodosLibros();
-                case 3 -> buscarPorAutor();
-                case 4 -> buscarPorCtegoria();
-                case 5 -> buscarPorTitulo();
-                case 8 -> mostrarTodosUsuarios();
-                case 9 -> eliminarLibros();
-                case 11 -> addLibrosPrestados();
-                case 12 -> devolverLibrosPrestados();
-                case 13 -> salida = false;
+                case 2 -> buscarPorAutor();
+                case 3 -> buscarPorCtegoria();
+                case 4 -> buscarPorTitulo();
+                case 5 -> addLibrosPrestados();
+                case 6 -> devolverLibrosPrestados();
+                case 7 -> salida = false;
             }
         }
     }
-
-    
-
-
 
     public void buscarPorTitulo() {
         System.out.println("Introduce el titulo");
