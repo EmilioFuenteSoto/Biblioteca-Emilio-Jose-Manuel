@@ -91,6 +91,8 @@ public class ComUsuario {
 
         if (esAdmin) {
             mostrarMenuAdmin(usuarioReal);
+        }else{
+            mostrarMenuUsuario(usuarioReal);
         }
 
     }
@@ -168,6 +170,40 @@ public class ComUsuario {
         }
 
     }
+
+     public void mostrarMenuUsuario(Usuario usuario) {
+        boolean salida = true;
+
+        while (salida) {
+            System.out.println("=== MENU USUARIO ===");
+            System.out.println("1. Mostrar Libros");
+            System.out.println("3. Buscar por Autor");
+            System.out.println("4. Buscar por Categoria");
+            System.out.println("5. Buscar por Titulo");
+            System.out.println("11. Realizar el prestamo de un libro");
+            System.out.println("12. Devolver un libro a la biblioteca");
+            System.out.println("13. Salir");
+
+            int opcion = Integer.parseInt(sc.nextLine());
+
+            switch (opcion) {
+                case 1 -> mostrarTodosLibros();
+                case 3 -> buscarPorAutor();
+                case 4 -> buscarPorCtegoria();
+                case 5 -> buscarPorTitulo();
+                case 8 -> mostrarTodosUsuarios();
+                case 9 -> eliminarLibros();
+                case 11 -> addLibrosPrestados();
+                case 12 -> devolverLibrosPrestados();
+                case 13 -> salida = false;
+            }
+        }
+
+    }
+
+    
+
+
 
     public void buscarPorTitulo() {
         System.out.println("Introduce el titulo");

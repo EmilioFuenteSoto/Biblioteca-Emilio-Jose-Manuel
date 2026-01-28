@@ -13,6 +13,11 @@ public class App {
         admin.setNombreUsuario("jose");
         admin.setContrasena("1234");
         biblioteca.anadirUsuarios(admin);
+
+        Usuario usuario1 = new Usuario("emi", "emi", false);
+        biblioteca.anadirUsuarios(usuario1);
+
+        
         comUsuarios.login();
 
     }
