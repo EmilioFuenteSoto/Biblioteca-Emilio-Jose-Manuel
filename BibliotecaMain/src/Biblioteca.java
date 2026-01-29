@@ -33,7 +33,7 @@ public class Biblioteca {
     }
 
     public Libros[] buscarLibroPorCategoria(String categoria) {
-        return gestoraLibros.buscarPorAutor(categoria);
+        return gestoraLibros.buscarPorCategoria(categoria);
     }
 
     public boolean validacionUsuario(String usuario, String contrasena) {
