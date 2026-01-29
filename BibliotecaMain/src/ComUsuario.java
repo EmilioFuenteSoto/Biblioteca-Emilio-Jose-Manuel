@@ -168,10 +168,10 @@ public class ComUsuario {
             System.out.println(ANSI_RED +"12. Mostrar los libros prestados"+ ANSI_WHITE);
             System.out.println(ANSI_RED +"13. Salir"+ ANSI_WHITE);
             System.out.println();
-            System.out.println("Estadísiticas");
-            System.out.println("14. Libros más prestados");
-            System.out.println("15. Mostrar los préstamos activos y totales");
-            System.out.println("16. Mostrar usuario con más préstamos");
+            System.out.println(ANSI_GREEN + "ESTADÍSTICAS" + ANSI_WHITE);
+            System.out.println(ANSI_GREEN + "14. Libros más prestados" + ANSI_WHITE);
+            System.out.println( ANSI_GREEN + "15. Mostrar los préstamos activos y totales" + ANSI_WHITE);
+            System.out.println(ANSI_GREEN + "16. Mostrar usuario con más préstamos" + ANSI_WHITE);
 
             int opcion = Integer.parseInt(sc.nextLine());
 
@@ -211,10 +211,10 @@ public class ComUsuario {
             System.out.println(ANSI_CYAN + "6. Devolver un libro a la biblioteca" + ANSI_WHITE);
             System.out.println(ANSI_CYAN + "7. Salir" + ANSI_WHITE);
             System.out.println();
-            System.out.println("Estadísiticas");
-            System.out.println("8. Libros más prestados");
-            System.out.println("9. Número de préstamos activos y totales");
-            System.out.println("10. Mostrar usuario con más préstamos");
+            System.out.println(ANSI_GREEN + "ESTADÍSTICAS" + ANSI_WHITE);
+            System.out.println(ANSI_GREEN + "8. Libros más prestados" + ANSI_WHITE);
+            System.out.println(ANSI_GREEN + "9. Número de préstamos activos y totales" + ANSI_WHITE);
+            System.out.println(ANSI_GREEN + "10. Mostrar usuario con más préstamos" + ANSI_WHITE);
 
             int opcion = Integer.parseInt(sc.nextLine());
 

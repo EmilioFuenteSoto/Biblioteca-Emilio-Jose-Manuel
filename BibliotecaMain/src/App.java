@@ -17,9 +17,9 @@ public class App {
         biblioteca.anadirUsuarios(noAdmin);
 
         Libros libro1 = new Libros("Harry Potter", "J K Rowling", "Misterio");
-        Libros libro2 = new Libros("Nacidos de la Bruma", "Brandon Sanderson", "Fantasía");
+        Libros libro2 = new Libros("Nacidos de la Bruma", "Brandon Sanderson", "Fantasia");
         Libros libro3 = new Libros("IT", "Stephen King", "Miedo");
-        Libros libro4 = new Libros("Los Cuentos de Terramar", "Ursula K LeGuin", "Fantasía");
+        Libros libro4 = new Libros("Los Cuentos de Terramar", "Ursula K LeGuin", "Fantasia");
         
         biblioteca.anadirLibros(libro3);
         biblioteca.anadirLibros(libro2);
