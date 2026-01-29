@@ -3,8 +3,9 @@ public class Usuario {
     private boolean admin;
     private String nombreUsuario;
     private String contrasena;
-    private int prestamosUsuario;
-    private Libros[] librosEnPosesion;
+    private int prestamosEnCurso;
+    private int prestamosRealizados;
+    //private Libros[] librosEnPosesion;
     
 
     //Constructores
@@ -12,7 +13,7 @@ public class Usuario {
         this.admin = false;
         this.nombreUsuario = "none";
         this.contrasena = "1234";
-        this.librosEnPosesion = new Libros [100];
+        //this.librosEnPosesion = new Libros [100];
     }
 
 
@@ -42,12 +43,20 @@ public class Usuario {
         
     }
 
-    public int getPrestamosUsuario(){
-        return this.prestamosUsuario;
+    public int getPrestamosEnCurso(){
+        return this.prestamosEnCurso;
     }
 
-    public void setPrestamosUsuario(int prestamosUsuario){
-        this.prestamosUsuario = prestamosUsuario;
+    public void setPrestamosEnCurso(int prestamosUsuario){
+        this.prestamosEnCurso = prestamosUsuario;
+    }
+    
+    public int getPrestamosRealizados(){
+        return this.prestamosRealizados;
+    }
+
+    public void setPrestamosRealizados(int prestamosRealizados){
+        this.prestamosRealizados = prestamosRealizados;
     }
 
     public void setContrasena(String contrasena){

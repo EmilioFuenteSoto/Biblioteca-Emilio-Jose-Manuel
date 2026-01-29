@@ -20,6 +20,14 @@ public class Biblioteca {
         return gestoraLibros.buscarPorTitulo(titulo);
     }
 
+    public Libros[] mostrarLibrosConMasPrestamos(){
+        return gestoraLibros.mostrarLibrosConMasPrestamos();
+    }
+
+    public Usuario[] mostrarUsuariosConMasPrestamos(){
+        return gestoraUsuarios.mostrarUsuariosConMasPrestamos();
+    }
+
     public Libros[] buscarLibroPorAutor(String autor) {
        return gestoraLibros.buscarPorAutor(autor);
     }

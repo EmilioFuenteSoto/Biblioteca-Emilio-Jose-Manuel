@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import javax.sql.rowset.spi.SyncResolver;
-
 public class ComUsuario {
     private Usuario usuarioReal;
     private Biblioteca biblioteca;
@@ -47,7 +45,7 @@ public class ComUsuario {
         }
 
     }
-
+        //primero
     public void addLibrosPrestados() {
         System.out.println("Escribe el titulo del libro que quieres pedir prestado");
 
@@ -57,6 +55,9 @@ public class ComUsuario {
 
         if (anadirLibros) {
             System.out.println("Se te ha prestado el libro correctamente");
+            usuarioReal.setPrestamosEnCurso(usuarioReal.getPrestamosEnCurso()+1);
+
+            usuarioReal.setPrestamosRealizados(usuarioReal.getPrestamosRealizados()+1);
         } else {
             System.out.println("No se ha hecho el prestamo del libro correctamente");
         }
@@ -140,6 +141,7 @@ public class ComUsuario {
 
         if (biblioteca.devolverLibrosPres(titulo)) {
             System.out.println("Libro devueltamente correctamente a la biblioteca");
+            usuarioReal.setPrestamosEnCurso(usuarioReal.getPrestamosEnCurso()-1);
         } else {
             System.out.println("No existe el libro que quieres devolver");
         }
@@ -154,7 +156,7 @@ public class ComUsuario {
             System.out.println(ANSI_BLUE + "2. Buscar por Autor" + ANSI_WHITE);
             System.out.println(ANSI_BLUE + "3. Buscar por Categoria"+ ANSI_WHITE);
             System.out.println(ANSI_BLUE + "4. Buscar por Titulo"+ ANSI_WHITE);
-            System.out.println( ANSI_BLUE + "5. Realizar el prestamo de un libro" + ANSI_WHITE);
+            System.out.println(ANSI_BLUE + "5. Pedir el prestamo de un libro" + ANSI_WHITE);
             System.out.println(ANSI_BLUE + "6. Devolver un libro a la biblioteca" + ANSI_WHITE);
             System.out.println();
             System.out.println("== OPCIONES ADMIN ==");
@@ -163,8 +165,13 @@ public class ComUsuario {
             System.out.println(ANSI_RED +"9. Añadir Admin"+ ANSI_WHITE);
             System.out.println(ANSI_RED +"10. Mostrar Usuarios"+ ANSI_WHITE);
             System.out.println(ANSI_RED +"11. Eliminar Libro"+ ANSI_WHITE);
-             System.out.println(ANSI_RED +"12. Mostrar los libros prestados"+ ANSI_WHITE);
+            System.out.println(ANSI_RED +"12. Mostrar los libros prestados"+ ANSI_WHITE);
             System.out.println(ANSI_RED +"13. Salir"+ ANSI_WHITE);
+            System.out.println();
+            System.out.println("Estadísiticas");
+            System.out.println("14. Libros más prestados");
+            System.out.println("15. Mostrar los préstamos activos y totales");
+            System.out.println("16. Mostrar usuario con más préstamos");
 
             int opcion = Integer.parseInt(sc.nextLine());
 
@@ -183,6 +190,9 @@ public class ComUsuario {
                 case 11 -> eliminarLibros();
                 case 12 -> mostrarTodosLibrosPrestados();
                 case 13 -> salida = false;
+                case 14 -> listaLibrosMasPrestados();
+                case 15 -> mostrarPrestamosActivosYTotales();
+                case 16 -> UsuarioConMasPrestamos();
             }
         }
 
@@ -197,9 +207,14 @@ public class ComUsuario {
             System.out.println(ANSI_CYAN + "2. Buscar por Autor" + ANSI_WHITE);
             System.out.println(ANSI_CYAN + "3. Buscar por Categoria" + ANSI_WHITE);
             System.out.println(ANSI_CYAN + "4. Buscar por Titulo" + ANSI_WHITE);
-            System.out.println(ANSI_CYAN + "5. Realizar el prestamo de un libro" + ANSI_WHITE);
+            System.out.println(ANSI_CYAN + "5. Pedir el prestamo de un libro" + ANSI_WHITE);
             System.out.println(ANSI_CYAN + "6. Devolver un libro a la biblioteca" + ANSI_WHITE);
             System.out.println(ANSI_CYAN + "7. Salir" + ANSI_WHITE);
+            System.out.println();
+            System.out.println("Estadísiticas");
+            System.out.println("8. Libros más prestados");
+            System.out.println("9. Número de préstamos activos y totales");
+            System.out.println("10. Mostrar usuario con más préstamos");
 
             int opcion = Integer.parseInt(sc.nextLine());
 
@@ -211,8 +226,22 @@ public class ComUsuario {
                 case 5 -> addLibrosPrestados();
                 case 6 -> devolverLibrosPrestados();
                 case 7 -> salida = false;
+                case 8 -> listaLibrosMasPrestados();
+                case 9 -> mostrarPrestamosActivosYTotales();
+                case 10 -> UsuarioConMasPrestamos();
             }
         }
+    }
+
+    public void listaLibrosMasPrestados() {
+        for (int i = 0; i < biblioteca.mostrarLibrosConMasPrestamos().length; i++) {
+            System.out.println("El libro " + biblioteca.mostrarLibrosConMasPrestamos()[i].getTitulo() + " es el libro con más préstamos con " + biblioteca.mostrarLibrosConMasPrestamos()[i].getVecesPrestado());
+        }
+    }
+
+    public void mostrarPrestamosActivosYTotales() {
+        System.out.println("Ahora mismo tienes un total de " + usuarioReal.getPrestamosEnCurso() + " préstamos activos");
+        System.out.println("Has realizado en total " + usuarioReal.getPrestamosRealizados() + " prestamos");
     }
 
     public void buscarPorTitulo() {
@@ -255,5 +284,12 @@ public class ComUsuario {
         } else {
             System.out.println("No hay libros asociados a este autor");
         }
+    }
+
+    public void UsuarioConMasPrestamos(){
+        for (int i = 0; i < biblioteca.mostrarUsuariosConMasPrestamos().length; i++) {
+            System.out.println("El usuario " + biblioteca.mostrarUsuariosConMasPrestamos()[i].getNombreUsuario() + " es el usuario con más préstamos con " + biblioteca.mostrarUsuariosConMasPrestamos()[i].getPrestamosEnCurso());
+        }
+        
     }
 }

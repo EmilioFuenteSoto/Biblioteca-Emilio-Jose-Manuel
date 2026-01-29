@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class GestoraUsuarios {
     private int cantidad;
     private Usuario listaUsuarios[];
@@ -54,6 +56,26 @@ public class GestoraUsuarios {
         return usuarioCorrecto;
 
     }
+
+    public Usuario[] mostrarUsuariosConMasPrestamos(){
+        Usuario[] usuarios = new Usuario[MAX_USUARIOS];
+        int maximo = 0;
+        for (int i = 0; i < cantidad; i++) {
+            if(listaUsuarios[i].getPrestamosEnCurso()>maximo)
+            maximo = listaUsuarios[i].getPrestamosEnCurso();
+        }
+        int cont = -1;
+        for (int i = 0; i < cantidad; i++) {
+            if(listaUsuarios[i].getPrestamosEnCurso() == maximo){
+                cont++;
+                usuarios[cont] = listaUsuarios[i];
+            }
+        }
+
+        Usuario[] arrayUsuariosTamanoAjustado = Arrays.copyOf(usuarios, cont+1);
+
+        return arrayUsuariosTamanoAjustado;
+    } 
 
     public void anadirUsuariosAdmin(Usuario usuario){
     if (cantidad < MAX_USUARIOS) {
