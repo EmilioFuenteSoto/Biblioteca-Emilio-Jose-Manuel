@@ -1,5 +1,7 @@
 public class Usuario {
-
+/*
+* @Author Emilio de la Fuente Soto y José Manuel Cano González 
+ */
     private boolean admin;
     private String nombreUsuario;
     private String contrasena;

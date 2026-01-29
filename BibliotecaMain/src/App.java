@@ -1,5 +1,7 @@
 import java.util.Scanner;
-
+/*
+* @Author Emilio de la Fuente Soto y José Manuel Cano González 
+ */
 public class App {
     private final static Scanner sc = new Scanner(System.in);
 

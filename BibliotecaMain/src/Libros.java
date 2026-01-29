@@ -1,3 +1,6 @@
+/*
+* @Author Emilio de la Fuente Soto y José Manuel Cano González 
+ */
 public class Libros {
     private String titulo;
     private String autor;

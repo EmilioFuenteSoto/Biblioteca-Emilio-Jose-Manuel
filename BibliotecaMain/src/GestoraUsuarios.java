@@ -1,5 +1,7 @@
 import java.util.Arrays;
-
+/*
+* @Author Emilio de la Fuente Soto y José Manuel Cano González 
+ */
 public class GestoraUsuarios {
     private int cantidad;
     private Usuario listaUsuarios[];

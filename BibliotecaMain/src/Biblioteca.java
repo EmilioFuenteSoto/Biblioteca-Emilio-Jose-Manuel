@@ -1,3 +1,6 @@
+/*
+* @Author Emilio de la Fuente Soto y José Manuel Cano González 
+ */
 public class Biblioteca {
     private GestoraLibros gestoraLibros;
     private GestoraUsuarios gestoraUsuarios;
